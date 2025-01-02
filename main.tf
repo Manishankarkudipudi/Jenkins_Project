@@ -14,7 +14,7 @@ provider "azurerm" {
 
 # Resource Group
 resource "azurerm_resource_group" "RG" {
-  name     = "JenkinsSonarQubeRG"
+  name     = "JenkinsSonarQubeRG2"
   location = "East US"
 }
 
