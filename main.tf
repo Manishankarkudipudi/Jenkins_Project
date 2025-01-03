@@ -14,7 +14,7 @@ provider "azurerm" {
 
 # Resource Group
 resource "azurerm_resource_group" "RG" {
-  name     = "JenkinsSonarQubeRG2"
+  name     = "JenkinsSonarQubeRG5"
   location = "East US"
 }
 
@@ -205,4 +205,12 @@ resource "azurerm_linux_virtual_machine" "sonarqube_vm" {
   tags = {
     environment = "dev"
   }
+}
+
+
+# Assign Reader Role to a User/Service Principal at the Resource Group Level
+resource "azurerm_role_assignment" "reader_role" {
+  principal_id   = "1fa98688-346d-4cd7-a5a5-f8789e267fbd"  # Replace with the Object ID of the user or service principal
+  role_definition_name = "Reader"
+  scope = azurerm_resource_group.RG.id
 }
