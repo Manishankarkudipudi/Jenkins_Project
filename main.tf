@@ -22,13 +22,13 @@ resource "azurerm_resource_group" "RG" {
 resource "azurerm_role_assignment" "role" {
   principal_id         = "1fa98688-346d-4cd7-a5a5-f8789e267fbd"
   role_definition_name = "Reader"
-  scope                = "/subscriptions/2becfaf7-7e71-47da-9b18-e6b51ec28023"  # Scope: Entire subscription
+  scope                = "/subscriptions/2becfaf7-7e71-47da-9b18-e6b51ec28023"  
 }
 
 
 
 data "azurerm_policy_assignment" "existing_policy_assignment" {
-  name     = "6a55b2e153464079871e817f"  # Use the unique identifier here
+  name     = "6a55b2e153464079871e817f"  
   scope_id = "/subscriptions/2becfaf7-7e71-47da-9b18-e6b51ec28023"
 }
 
